@@ -18,11 +18,22 @@ var orderWords = function(string) {
     if (words.hasOwnProperty(stringItems[i])) {
       words[stringItems[i]] = words[stringItems[i]] + 1
     } else {
-      Object.defineProperty(words, stringItems[i], {value: 1, writable: true, enumerable: true, configurable: true});
+      words[stringItems[i]] = 1
     }
   };
   return words;
 };
+
+var toSorted = function(wordObj) {
+  var sortable = [];
+  for (var property in wordObj) {
+    sortable.push([property, wordObj[property]]);
+  }
+
+  sortable.sort(function(a, b) { return b[1] - a[1]; });
+
+  return sortable;
+}
 
 var cleanSentence = function(string) {
   var regex = new RegExp('[^\\w\\s]','g');

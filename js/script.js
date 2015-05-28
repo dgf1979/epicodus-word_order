@@ -3,9 +3,27 @@
 
 //jQuery
 $( document ).ready(function() {
-    console.log( "jQuery Ready" );
 
-    $("#jqtest").text('jQuery Ready')
+    $("form.words_to_count").submit(function(event) {
+      var input = $("#input_text").val();
+
+      var result = toSorted(orderWords(input));
+
+      var ul = $("#word_list")
+      ul.empty();
+
+      for (var i = 0; i < result.length; i++) {
+        ul.append("<li>" + result[i][1] + " instances of '" + result[i][0]  + "'</li>");
+      }
+
+      $(".results").show();
+
+      event.preventDefault();
+    });
+
+
+
+
 });
 
 //raw js
@@ -36,9 +54,10 @@ var toSorted = function(wordObj) {
 }
 
 var cleanSentence = function(string) {
-  var regex = new RegExp('[^\\w\\s]','g');
-  string = string.replace(regex, '').toLowerCase();
-  var words = string.split(" ");
+  var punctuationRegex = new RegExp('[^\\w\\s]','g');
+  string = string.replace(punctuationRegex, '').toLowerCase();
 
+  var regex = new RegExp('(\\w+)', 'g');
+  var words = string.match(regex);
   return words;
 };

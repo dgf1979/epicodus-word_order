@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script src='js/lib/jquery-1.11.3.js'></script>
+    <script src='js/script.js'></script>
+
+  </head>
+  <body>
+
+    <div class="container">
+      <h1 class="page-header text-center">Word Counter</h1>
+      <form class="words_to_count">
+        <div class="form-group">
+          <label for="input_text">Enter your text to count here:</label>
+          <textarea id="input_text" name="input_text" class="form-control" rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Count Words</button>
+      </form>
+      <br>
+      <div class="results">
+        <p class="lead">Your Word Count:</p>
+        <ul id="word_list">
+        </ul>
+      </div>
+    </div>
+
+  </body>
+</html>

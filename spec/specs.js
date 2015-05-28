@@ -2,6 +2,11 @@ describe('cleanSentence', function() {
   it("will return an array of words, downcased and punctuation stripped", function() {
     expect(cleanSentence("It's five o'clock somewhere!")).to.eql(["its", "five", "oclock", "somewhere"]);
   });
+
+  it("will return an array of words, downcased and punctuation stripped, along with any line breaks", function() {
+    var testSentence = "It's five\no'clock somewhere!"
+    expect(cleanSentence(testSentence)).to.eql(["its", "five", "oclock", "somewhere"]);
+  });
 });
 
 
